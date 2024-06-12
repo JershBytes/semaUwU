@@ -7,7 +7,7 @@
 # Variables
 TMP=$(mktemp -d) # Create TMP directory
 LOG_FILE="$TMP/errors.log"
-LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/latest" | jq '.assets[] | select(.name|match("semaphore_*_linux_amd64.deb$")) | .browser_download_url' | tr -d '"') # Grab Latest deb file
+LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/latest" | jq -r '.assets[] | select(.name | endswith("_linux_amd64.deb")) | .browser_download_url')
 HOST_IP=$(hostname -I | cut -d' ' -f1) # Get the IP address of the host machine
 SYSTEMD_FILE="https://github.com/ColoredBytes/SemaUwU/blob/main/assets/files/semaphore.service"
 
