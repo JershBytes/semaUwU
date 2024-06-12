@@ -19,13 +19,39 @@ I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv
 
 ## :gear: Instructions
 
+- **Clone Repo.**
 
+```bash
+git clone https://github.com/ColoredBytes/SemaUwU.git
+```
+- **Make the script executable.**
 
-
+```bash
+chmod +x SemaUwU/install.sh
+```
+- **Run the script.**
+ 
+ ```bash
+ bash SemaUwU/install.sh
+```
 
 ## :memo: Notes
-> [!NOTE]
+> [!TIP]
 > This Script uses MariaDB as the Database. If you chose to use one of the other options just comment the function out.
+
+>[!NOTE]
+> If you stick with mariab you will need to run the commands below
+
+- create the semaphore database:
+
+```
+CREATE DATABASE semaphore_db;
+```
+- Create a MariaDB user that Semaphore will use to access its database:
+
+```
+GRANT ALL PRIVILEGES ON semaphore_db.* TO semaphore_user@localhost IDENTIFIED BY 'randomly_generated_password_here';
+```
 
 ## :balance_scale: **LICENSE**
 
