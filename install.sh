@@ -21,12 +21,6 @@ error_exit() {
     exit 1
 }
 
-mariadb_install() {
-  sudo apt install -y mariadb-server || error_exit "Failed to install MariaDB server"
-  sudo mysql_secure_installation || error_exit "Failed to secure MariaDB installation"
-  sudo mariadb || error_exit "Failed to start MariaDB"
-}
-
 systemd_config() {
   sudo chmod 644 /etc/systemd/system/semaphore.service || error_exit "Failed to set permissions on systemd service file"
   sudo systemctl daemon-reload || error_exit "Failed to reload systemd daemon"
@@ -36,9 +30,6 @@ systemd_config() {
 
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
-
-# Build the Database
-mariadb_install
 
 # Download semaphore deb package to TMP
 wget -O $TMP/semaphore.deb $LATEST || error_exit "Failed to download the latest semaphore .deb package"
