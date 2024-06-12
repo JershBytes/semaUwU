@@ -31,7 +31,7 @@ chmod +x SemaUwU/install.sh
 - **Run the script.**
  
  ```bash
- bash SemaUwU/install.sh
+ ./SemaUwU/install.sh
 ```
 > [!NOTE]
 > You woull need to setup the DB your self as I felt it would be easier to let the user pick what they want to use. Instead of me forcing a certain DB.
