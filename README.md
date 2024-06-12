@@ -5,7 +5,6 @@
 - [:x: Problem](#x-problem)
 - [:heavy\_check\_mark: Solution](#heavy_check_mark-solution)
 - [:gear: Instructions](#gear-instructions)
-- [:memo: Notes](#memo-notes)
 - [:balance\_scale: **LICENSE**](#balance_scale-license)
 
 
@@ -34,24 +33,9 @@ chmod +x SemaUwU/install.sh
  ```bash
  bash SemaUwU/install.sh
 ```
+> [!NOTE]
+> You woull need to setup the DB your self as I felt it would be easier to let the user pick what they want to use. Instead of me forcing a certain DB.
 
-## :memo: Notes
-> [!TIP]
-> This Script uses MariaDB as the Database. If you chose to use one of the other options just comment the function out.
-
->[!NOTE]
-> If you stick with mariab you will need to run the commands below
-
-- create the semaphore database:
-
-```
-CREATE DATABASE semaphore_db;
-```
-- Create a MariaDB user that Semaphore will use to access its database:
-
-```
-GRANT ALL PRIVILEGES ON semaphore_db.* TO semaphore_user@localhost IDENTIFIED BY 'randomly_generated_password_here';
-```
 
 ## :balance_scale: **LICENSE**
 
