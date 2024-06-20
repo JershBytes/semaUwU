@@ -11,7 +11,6 @@
 - [:x: Problem](#x-problem)
 - [:heavy\_check\_mark: Solution](#heavy_check_mark-solution)
 - [:gear: Instructions](#gear-instructions)
-- [:balance\_scale: **LICENSE**](#balance_scale-license)
 
 
 ## :x: Problem
