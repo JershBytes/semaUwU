@@ -31,12 +31,16 @@ git clone https://github.com/ColoredBytes/SemaUwU.git
 - **Make the script executable.**
 
 ```bash
-chmod +x SemaUwU/install.sh
+chmod +x SemaUwU/*-install.sh
 ```
 - **Run the script.**
  
  ```bash
- ./SemaUwU/install.sh
+ ./SemaUwU/deb-install.sh
+```
+or
+```
+./SemaUwU/rpm-install.sh
 ```
 ---
 > [!NOTE]
