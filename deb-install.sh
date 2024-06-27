@@ -11,7 +11,7 @@ LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/la
 CURDIR=$(pwd)
 
 # Systemd Variables
-SERVICE_URL="conf/semaphore.service"
+SERVICE_URL="https://github.com/ColoredBytes/SemaUwU/blob/2b06c623e361bdcb83917204b382a487530fcd1e/conf/semaphore.service"
 DEST_DIR="/etc/systemd/system"
 SERVICE_FILE="semaphore.service"
 
