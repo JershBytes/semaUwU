@@ -79,6 +79,9 @@ sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Fa
 mariadb_install || error_exit "Failed to install MariaDB"
 sudo mysql -u root < ${CURDIR}/conf/mariadb.conf || error_exit "Failed to import mariadb config"
 
+# Quick nap
+sleep 5
+
 # Download semaphore rpm package to TMP
 wget -O $TMP/semaphore.rpm $LATEST || error_exit "Failed to download the latest semaphore .rpm package"
 if [ ! -f "$TMP/semaphore.rpm" ]; then

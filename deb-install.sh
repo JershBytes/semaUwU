@@ -81,7 +81,7 @@ mariadb_install || error_exit "Failed to install MariaDB"
 sudo mysql -u root < ${CURDIR}/conf/mariadb.conf || error_exit "Failed to import mariadb config"
 
 # Quick nap
-sleep 10
+sleep 5
 
 # Download semaphore deb package to TMP
 wget -O $TMP/semaphore.deb $LATEST || error_exit "Failed to download the latest semaphore .deb package"
