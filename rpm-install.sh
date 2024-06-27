@@ -8,7 +8,7 @@ HOST_IP=$(hostname -I | cut -d' ' -f1) # Get the IP address of the host machine
 TMP=$(mktemp -d) # Create TMP directory
 LOG_FILE="$TMP/errors.log"
 LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/latest" | jq -r '.assets[] | select(.name | endswith("_linux_amd64.rpm")) | .browser_download_url')
-
+CURDIR=$(pwd)
 # Define the source and destination paths for systemd service
 SERVICE_FILE_PATH="$CURDIR/conf"
 DEST_DIR="/etc/systemd/system"
