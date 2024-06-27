@@ -23,6 +23,17 @@ I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv
 
 ## :gear: Instructions
 
+- **Install prerequisites**
+  - **Debian Based**
+```bash
+sudo apt -y install jq wget curl git
+```
+  - **RHEL Based**
+```bash
+sudo dnf -y install jq wget curl git
+```
+---
+
 - **Clone Repo.**
 
 ```bash
@@ -33,18 +44,25 @@ git clone https://github.com/ColoredBytes/SemaUwU.git
 ```bash
 chmod +x SemaUwU/*-install.sh
 ```
+
+ - **Change into the dir**
+ ```bash
+cd SemaUwU
+```
 - **Run the script.**
  
  ```bash
- ./SemaUwU/deb-install.sh
+ ./deb-install.sh
 ```
 or
+
 ```
-./SemaUwU/rpm-install.sh
+./rpm-install.sh
 ```
 ---
 > [!NOTE]
-> You woull need to setup the DB your self as I felt it would be easier to let the user pick what they want to use. Instead of me forcing a certain DB.
+> I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
+> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
 
 
 
