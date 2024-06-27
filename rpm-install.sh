@@ -33,7 +33,7 @@ systemd_config() {
 }
 
 mariadb_install() {
-    sudo dnf -y install mariadb-server || error_exit "Failed to install MariaDB"
+    sudo dnf install -y mariadb-server mariadb || error_exit "Failed to install MariaDB"
     sudo mysql_secure_installation || error_exit "Failed to secure MariaDB installation"
 }
 
@@ -75,11 +75,11 @@ prompt_install() {
 # Trap to clean up temporary files
 trap "rm -rf ${TMP}" EXIT
 
-# Install script prerequisites
-sudo dnf -y install jq wget curl || error_exit "Failed to install prerequisites"
+# Create group
+sudo groupadd semaphore || error_exit "Failed to create semaphore group"
 
-# Create User
-sudo useradd --system --create-home --home /home/semaphore --shell /bin/false --group semaphore || error_exit "Failed to create semaphore user"
+# Create user and assign to group
+sudo useradd --system --create-home --home /home/semaphore --shell /bin/false --gid semaphore semaphore || error_exit "Failed to create semaphore user"
 
 # Setup and configure MariaDB
 mariadb_install || error_exit "Failed to install MariaDB"
