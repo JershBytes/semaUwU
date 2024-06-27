@@ -46,10 +46,13 @@ opentofu_install() {
 }
 
 mariadb_install() {
-  sudo apt update
 sudo apt install mariadb-server
 sudo mysql_secure_installation
 }
+
+# Install script prerequisites
+sudo apt update
+sudo apt -y install jq wget curl git
 
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
@@ -57,7 +60,6 @@ sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Fa
 # Setup and configure mariadb
 mariadb_install || error_exit "Failed to install MariaDB"
 sudo mysql -u root < ${CURDIR}/conf/mariadb.conf || error_exit "Failed to import mariadb config"
-
 
 # Download semaphore deb package to TMP
 wget -O $TMP/semaphore.deb $LATEST || error_exit "Failed to download the latest semaphore .deb package"
