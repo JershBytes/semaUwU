@@ -37,6 +37,11 @@ sudo apt install mariadb-server
 sudo mysql_secure_installation
 }
 
+# Copy the service file to the destination directory
+copy_service_file() {
+    sudo cp "$SERVICE_FILE_PATH/$SERVICE_FILE" "$DEST_DIR/$SERVICE_FILE" || error_exit "Failed to copy systemd service file"
+    echo "Service file copied successfully."
+}
 # Function to install Terraform
 terraform_install() {
     wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -103,7 +108,9 @@ sudo cp "$SERVICE_FILE_PATH/$SERVICE_FILE" "$DEST_DIR/$SERVICE_FILE" || error_ex
 # Do the needful to enable it correctly 
 systemd_config
 
-# Install either OpemTofu or Terraform
+# Copy over service file and ask about Terraform and OpenTofu
+copy_service_file
+
 if prompt_install "Would you like to install Terraform?"; then
     terraform_install
 else
@@ -115,6 +122,5 @@ if prompt_install "Would you like to install OpenTofu?"; then
 else
     echo "Skipping OpenTofu installation."
 fi
-
 # Job's Done
 echo "Semaphore has been successfully installed. It should be accessible at http://${HOST_IP}:3000"
