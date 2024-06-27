@@ -33,14 +33,20 @@ git clone https://github.com/ColoredBytes/SemaUwU.git
 ```bash
 chmod +x SemaUwU/*-install.sh
 ```
+
+ - **Change into the dir**
+ ```bash
+cd SemaUwU
+```
 - **Run the script.**
  
  ```bash
- ./SemaUwU/deb-install.sh
+ ./deb-install.sh
 ```
 or
+
 ```
-./SemaUwU/rpm-install.sh
+./rpm-install.sh
 ```
 ---
 > [!NOTE]
