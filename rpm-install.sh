@@ -9,8 +9,8 @@ TMP=$(mktemp -d) # Create TMP directory
 LOG_FILE="$TMP/errors.log"
 LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/latest" | jq -r '.assets[] | select(.name | endswith("_linux_amd64.rpm")) | .browser_download_url')
 
-# Systemd Variables
-SERVICE_URL="https://raw.githubusercontent.com/ColoredBytes/SemaUwU/main/assets/files/semaphore.service"
+# Define the source and destination paths for systemd service
+SERVICE_FILE_PATH="$CURDIR/conf"
 DEST_DIR="/etc/systemd/system"
 SERVICE_FILE="semaphore.service"
 
@@ -29,6 +29,11 @@ systemd_config() {
   sudo systemctl enable "$SERVICE_FILE" || error_exit "Failed to enable semaphore service"
   sudo systemctl start "$SERVICE_FILE" || error_exit "Failed to start semaphore service"
   sudo systemctl status "$SERVICE_FILE" || error_exit "Failed to start semaphore service"
+}
+
+mariadb_install() {
+sudo dnf -y install mariadb-server
+sudo mysql_secure_installation
 }
 
 # Copy the service file to the destination directory
@@ -67,6 +72,10 @@ prompt_install() {
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
 
+# Setup and configure mariadb
+mariadb_install || error_exit "Failed to install MariaDB"
+sudo mysql -u root < ${CURDIR}/conf/mariadb.conf || error_exit "Failed to import mariadb config"
+
 # Download semaphore rpm package to TMP
 wget -O $TMP/semaphore.rpm $LATEST || error_exit "Failed to download the latest semaphore .rpm package"
 if [ ! -f "$TMP/semaphore.rpm" ]; then
@@ -76,8 +85,6 @@ fi
 # Install/update semaphore rpm package
 echo "Installing Semaphore & Friends..."
 sudo dnf install -y ansible || error_exit "Failed to install Ansible"
-terraform_install || error_exit "Failed to install Terraform"
-opentofu_install || error_exit "Failed to install OpenTofu"
 sudo rpm install -y $TMP/semaphore.rpm || error_exit "Failed to install Semaphore .rpm package"
 
 # Setup Semaphore
