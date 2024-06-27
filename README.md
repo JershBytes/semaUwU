@@ -44,7 +44,8 @@ or
 ```
 ---
 > [!NOTE]
-> You woull need to setup the DB your self as I felt it would be easier to let the user pick what they want to use. Instead of me forcing a certain DB.
+> I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
+> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
 
 
 
