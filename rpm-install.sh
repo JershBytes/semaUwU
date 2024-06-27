@@ -31,17 +31,37 @@ systemd_config() {
   sudo systemctl status "$SERVICE_FILE" || error_exit "Failed to start semaphore service"
 }
 
-terraform_install() {
-    sudo yum install -y yum-utils
-sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
-sudo yum -y install terraform
+# Copy the service file to the destination directory
+copy_service_file() {
+    sudo cp "$SERVICE_FILE_PATH/$SERVICE_FILE" "$DEST_DIR/$SERVICE_FILE" || error_exit "Failed to copy systemd service file"
+    echo "Service file copied successfully."
 }
 
+# Function to install Terraform on RHEL-based systems
+terraform_install() {
+    sudo yum install -y yum-utils
+    sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+    sudo yum -y install terraform
+    echo "Terraform installed successfully."
+}
+
+# Function to install OpenTofu on RHEL-based systems
 opentofu_install() {
     curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
     chmod +x install-opentofu.sh
     ./install-opentofu.sh --install-method rpm
     rm install-opentofu.sh
+    echo "OpenTofu installed successfully."
+}
+
+# Prompt user for yes/no input
+prompt_install() {
+    read -p "$1 (yes/no): " choice
+    case "$choice" in 
+        yes|Yes|YES|y|Y) return 0 ;;
+        no|No|NO|n|N) return 1 ;;
+        *) echo "Invalid input. Please enter yes or no." ; prompt_install "$1" ;;
+    esac
 }
 
 # Create User
@@ -68,8 +88,20 @@ sudo mkdir /etc/semaphore || error_exit "Failed to create /etc/semaphore directo
 sudo mv config.json /etc/semaphore/ || error_exit "Failed to move config.json to /etc/semaphore"
 sudo chown -R semaphore:semaphore /etc/semaphore || error_exit "Failed to set permissions for /etc/semaphore"
 
-# Make systemd service
-sudo curl -o "$DEST_DIR/$SERVICE_FILE" "$SERVICE_URL" || error_exit "Failed to download systemd service file"
+# Copy over service file and ask about Terraform and OpenTofu
+copy_service_file
+
+if prompt_install "Would you like to install Terraform?"; then
+    terraform_install
+else
+    echo "Skipping Terraform installation."
+fi
+
+if prompt_install "Would you like to install OpenTofu?"; then
+    opentofu_install
+else
+    echo "Skipping OpenTofu installation."
+fi
 
 # Do the needful to enable it correctly 
 systemd_config
