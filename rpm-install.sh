@@ -79,7 +79,7 @@ trap "rm -rf ${TMP}" EXIT
 sudo dnf -y install jq wget curl || error_exit "Failed to install prerequisites"
 
 # Create User
-sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
+sudo useradd --system --create-home --home /home/semaphore --shell /bin/false --group semaphore || error_exit "Failed to create semaphore user"
 
 # Setup and configure MariaDB
 mariadb_install || error_exit "Failed to install MariaDB"
