@@ -45,11 +45,9 @@ copy_service_file() {
 
 # Function to install Terraform
 terraform_install() {
-    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg || error_exit "Failed to download HashiCorp GPG key"
-    echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list || error_exit "Failed to add HashiCorp repository"
-    sudo apt update || error_exit "Failed to update package lists"
-    sudo apt install -y terraform || error_exit "Failed to install Terraform"
-    echo "Terraform installed successfully."
+    wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
+sudo apt update && sudo apt install terraform
 }
 
 # Function to install OpenTofu
@@ -75,10 +73,6 @@ prompt_install() {
 
 # Trap to clean up temporary files
 trap "rm -rf ${TMP}" EXIT
-
-# Install script prerequisites
-sudo apt update || error_exit "Failed to update package lists"
-sudo apt -y install jq wget curl || error_exit "Failed to install prerequisites"
 
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"

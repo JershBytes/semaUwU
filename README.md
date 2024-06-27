@@ -23,6 +23,17 @@ I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv
 
 ## :gear: Instructions
 
+- **Install prerequisites**
+  - **Debian Based**
+```bash
+sudo apt -y install jq wget curl git
+```
+  - **RHEL Based**
+```bash
+sudo dnf -y install jq wget curl git
+```
+---
+
 - **Clone Repo.**
 
 ```bash
