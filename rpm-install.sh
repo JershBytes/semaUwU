@@ -69,6 +69,9 @@ prompt_install() {
     esac
 }
 
+# Install script prerequisites
+sudo dnf -y install jq wget curl 
+
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
 

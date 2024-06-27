@@ -71,7 +71,7 @@ prompt_install() {
 
 # Install script prerequisites
 sudo apt update
-sudo apt -y install jq wget curl git
+sudo apt -y install jq wget curl 
 
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
@@ -102,14 +102,11 @@ sudo mkdir /etc/semaphore || error_exit "Failed to create /etc/semaphore directo
 sudo mv config.json /etc/semaphore/ || error_exit "Failed to move config.json to /etc/semaphore"
 sudo chown -R semaphore:semaphore /etc/semaphore || error_exit "Failed to set permissions for /etc/semaphore"
 
-# Copy the service file to the destination directory
-sudo cp "$SERVICE_FILE_PATH/$SERVICE_FILE" "$DEST_DIR/$SERVICE_FILE" || error_exit "Failed to copy systemd service file"
+# Copy over service file and ask about Terraform and OpenTofu
+copy_service_file
 
 # Do the needful to enable it correctly 
 systemd_config
-
-# Copy over service file and ask about Terraform and OpenTofu
-copy_service_file
 
 if prompt_install "Would you like to install Terraform?"; then
     terraform_install
