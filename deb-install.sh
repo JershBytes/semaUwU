@@ -8,9 +8,10 @@ HOST_IP=$(hostname -I | cut -d' ' -f1) # Get the IP address of the host machine
 TMP=$(mktemp -d) # Create TMP directory
 LOG_FILE="$TMP/errors.log"
 LATEST=$(curl -s "https://api.github.com/repos/semaphoreui/semaphore/releases/latest" | jq -r '.assets[] | select(.name | endswith("_linux_amd64.deb")) | .browser_download_url')
+CURDIR=$(pwd)
 
 # Systemd Variables
-SERVICE_URL="https://raw.githubusercontent.com/ColoredBytes/SemaUwU/main/assets/files/semaphore.service"
+SERVICE_URL="conf/semaphore.service"
 DEST_DIR="/etc/systemd/system"
 SERVICE_FILE="semaphore.service"
 
@@ -44,8 +45,19 @@ opentofu_install() {
     rm install-opentofu.sh
 }
 
+mariadb_install() {
+  sudo apt update
+sudo apt install mariadb-server
+sudo mysql_secure_installation
+}
+
 # Create User
 sudo adduser --system --group --home /home/semaphore semaphore || error_exit "Failed to create semaphore user"
+
+# Setup and configure mariadb
+mariadb_install || error_exit "Failed to install MariaDB"
+sudo mysql -u root < ${CURDIR}/conf/mariadb.conf || error_exit "Failed to import mariadb config"
+
 
 # Download semaphore deb package to TMP
 wget -O $TMP/semaphore.deb $LATEST || error_exit "Failed to download the latest semaphore .deb package"
