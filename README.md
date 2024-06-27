@@ -59,10 +59,13 @@ or
 ```
 ./rpm-install.sh
 ```
----
+## :memo: Notes
 > [!NOTE]
 > I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
 > - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
+
+> [!CAUTION]
+> Their is some weird Behavior with 24.04 of Ubunutu. I suggest using 22.04 or Debian as an Alternative. 
 
 
 
