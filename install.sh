@@ -45,10 +45,12 @@ copy_service_file() {
 # MariaDB Install Functions
 deb_mariadb_install() {
     sudo apt install -y mariadb-server || error_exit "Failed to install MariaDB"
+    systemctl enable --now mariadb
     sudo mysql_secure_installation || error_exit "Failed to secure MariaDB installation"
 }
 rpm_mariadb_install() {
     sudo dnf install -y mariadb-server mariadb || error_exit "Failed to install MariaDB"
+    systemctl enable --now mariadb
     sudo mysql_secure_installation || error_exit "Failed to secure MariaDB installation"
 }
 
