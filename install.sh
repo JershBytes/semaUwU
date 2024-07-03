@@ -130,7 +130,7 @@ sudo mkdir /etc/semaphore || error_exit "Failed to create /etc/semaphore directo
 sudo mv config.json /etc/semaphore/ || error_exit "Failed to move config.json to /etc/semaphore"
 sudo chown -R semaphore:semaphore /etc/semaphore || error_exit "Failed to set permissions for /etc/semaphore"
 
-# Copy over service file and ask about Terraform and OpenTofu
+# Copy over service file.
 copy_service_file
 
 # Do the needful to enable it correctly 
