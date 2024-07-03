@@ -64,6 +64,11 @@ cd SemaUwU
 > [!NOTE]
 > I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
 > - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
+---
+> [!NOTE]
+> Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
+> - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
+> - [OpenTofu](https://opentofu.org/docs/intro/install/)
 
 
 
