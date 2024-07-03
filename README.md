@@ -11,6 +11,9 @@
 - [:x: Problem](#x-problem)
 - [:heavy\_check\_mark: Solution](#heavy_check_mark-solution)
 - [:gear: Instructions](#gear-instructions)
+  - [**Install prerequisites**](#install-prerequisites)
+- [🏃Running The Script.](#running-the-script)
+- [:memo: Notes](#memo-notes)
 
 
 ## :x: Problem
@@ -72,8 +75,6 @@ cd SemaUwU
 > - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
 > - [OpenTofu](https://opentofu.org/docs/intro/install/)
 
-> [!CAUTION]
-> Their is some weird Behavior with 24.04 of Ubunutu. I suggest using 22.04 or Debian as an Alternative. 
 
 
 
