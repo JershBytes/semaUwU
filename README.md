@@ -23,12 +23,14 @@ I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv
 
 ## :gear: Instructions
 
-- **Install prerequisites**
-  - **Debian Based**
+### **Install prerequisites**
+- **Debian Based**
+
 ```bash
 sudo apt -y install jq wget curl git
 ```
   - **RHEL Based**
+
 ```bash
 sudo dnf -y install jq wget curl git
 ```
@@ -42,27 +44,33 @@ git clone https://github.com/ColoredBytes/SemaUwU.git
 - **Make the script executable.**
 
 ```bash
-chmod +x SemaUwU/*-install.sh
+chmod +x SemaUwU/install.sh
 ```
+## 🏃Running The Script.
+- **Change into the directory**
 
- - **Change into the dir**
  ```bash
 cd SemaUwU
 ```
-- **Run the script.**
+- **On Deb Based Systems.**
  
  ```bash
- ./deb-install.sh
+ ./install.sh deb
 ```
-or
+- **On Rpm Based Systems.**
 
-```
-./rpm-install.sh
+```bash
+./install.sh rpm
 ```
 ## :memo: Notes
 > [!NOTE]
 > I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
 > - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
+---
+> [!NOTE]
+> Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
+> - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
+> - [OpenTofu](https://opentofu.org/docs/intro/install/)
 
 > [!CAUTION]
 > Their is some weird Behavior with 24.04 of Ubunutu. I suggest using 22.04 or Debian as an Alternative. 
