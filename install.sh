@@ -102,6 +102,7 @@ fi
 
 # Install/update semaphore rpm package
 echo "Installing Semaphore & Friend..."
+sudo dnf install -y epel-release || error_exit "Failed to install EPEL Repo"
 sudo dnf install -y ansible || error_exit "Failed to install Ansible"
 sudo dnf install -y "${TMP}/semaphore.rpm" || error_exit "Failed to install Semaphore .rpm package"
 }
