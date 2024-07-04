@@ -10,9 +10,8 @@
 
 - [:x: Problem](#x-problem)
 - [:heavy\_check\_mark: Solution](#heavy_check_mark-solution)
+- [Install prerequisites](#install-prerequisites)
 - [:gear: Instructions](#gear-instructions)
-  - [**Install prerequisites**](#install-prerequisites)
-- [🏃Running The Script.](#running-the-script)
 - [:memo: Notes](#memo-notes)
 
 
@@ -24,9 +23,8 @@ I've used Semaphore for about a year and loved it. But always hated that I neede
 
 I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv/complete-ansible-semaphore-tutorial-from-installation-to-automation/#more-4065) on installing semaphore and thought. Ahh cool a good base to base the script off of. I just need the logic to grab the Latest Release. 
 
-## :gear: Instructions
 
-### **Install prerequisites**
+## Install prerequisites
 - **Deb Based**
 
 ```bash
@@ -37,19 +35,19 @@ sudo apt -y install jq wget curl git
 ```bash
 sudo dnf -y install jq wget curl git
 ```
----
 
-- **Clone Repo.**
+
+
+
+
+## :gear: Instructions
+
+- **Clone the repo.**
 
 ```bash
 git clone https://github.com/ColoredBytes/SemaUwU.git
 ```
-- **Make the script executable.**
 
-```bash
-chmod +x SemaUwU/install.sh
-```
-## 🏃Running The Script.
 - **Change into the directory**
 
  ```bash
