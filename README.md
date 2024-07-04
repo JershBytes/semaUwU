@@ -24,7 +24,7 @@ I've used Semaphore for about a year and loved it. But always hated that I neede
 I Created **SemaUwU**  after watching [Learn Linux TV](https://www.learnlinux.tv/complete-ansible-semaphore-tutorial-from-installation-to-automation/#more-4065) on installing semaphore and thought. Ahh cool a good base to base the script off of. I just need the logic to grab the Latest Release. 
 
 
-## Install prerequisites
+## ✅ Install prerequisites
 - **Deb Based**
 
 ```bash
@@ -72,6 +72,7 @@ cd SemaUwU
 > Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
 > - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
 > - [OpenTofu](https://opentofu.org/docs/intro/install/)
+
 
 
 
