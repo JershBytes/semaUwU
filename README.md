@@ -10,7 +10,7 @@
 
 - [:x: Problem](#x-problem)
 - [:heavy\_check\_mark: Solution](#heavy_check_mark-solution)
-- [Install prerequisites](#install-prerequisites)
+- [✅ Install prerequisites](#-install-prerequisites)
 - [:gear: Instructions](#gear-instructions)
 - [:memo: Notes](#memo-notes)
 
