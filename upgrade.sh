@@ -23,7 +23,7 @@ error_exit() {
     exit 1
 }
 
-deb() {
+deb_upgrade() {
 sudo apt update
 wget -O "${TMP}/semaphore.deb" "${LATEST}" || error_exit "Failed to download the latest semaphore .deb package"
 if [ ! -f "${TMP}/semaphore.deb" ]; then
@@ -36,7 +36,7 @@ sudo apt install -y ansible || error_exit "Failed to install Ansible"
 sudo apt install -y "${TMP}/semaphore.deb" || error_exit "Failed to install Semaphore .deb package"
 }
 
-rpm() {
+rpm_upgrade() {
 sudo dnf makecache
 wget -O "${TMP}/semaphore.rpm" "${RPM_LATEST}" || error_exit "Failed to download the latest semaphore .rpm package"
 if [ ! -f "${TMP}/semaphore.rpm" ]; then
@@ -55,10 +55,10 @@ sudo dnf install -y "${TMP}/semaphore.rpm" || error_exit "Failed to install Sema
 # Case Statment to call function depending on the OS.
 case "$1" in
   deb)
-    deb
+    deb_upgrade
     ;;
   rpm)
-    rpm
+    rpm_upgrade
     ;;
   *)
     echo "Usage: $0 {deb|rpm}"
