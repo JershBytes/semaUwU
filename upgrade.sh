@@ -66,6 +66,9 @@ case "$1" in
     ;;
 esac
 
+# Remove TMP directory
+rm -R $TMP || error_exit "Failed to Remove TMP dir..."
 
 # Job's Done
 echo "Semaphore has been successfully installed. It should be accessible at http://${HOST_IP}:3000"
+
