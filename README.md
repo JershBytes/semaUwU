@@ -53,13 +53,13 @@ sudo dnf -y install jq wget curl git
 - **Clone the repo.**
 
 ```bash
-git clone https://github.com/ColoredBytes/SemaUwU.git
+git clone https://github.com/ColoredBytes/semaUwU.git
 ```
 
 - **Change into the directory**
 
  ```bash
-cd SemaUwU
+cd semaUwU
 ```
 - **On Deb Based Systems.**
  
@@ -79,7 +79,7 @@ cd SemaUwU
 - **Change into the directory**
 
  ```bash
-cd SemaUwU
+cd semaUwU
 ```
 - **On Deb Based Systems.**
  
