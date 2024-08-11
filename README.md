@@ -96,7 +96,7 @@ cd semaUwU
 
 ## :memo: Notes
 > [!NOTE]
-> I've modified the script to install MariaDB by default and pass the commands through to help setup it up.
+> I've modified the script to install MariaDB by default and pass the commands through to MariaDB for the setup of the database. This is not for the Sempaphore Setup portion but just the Datbase. All you need to is note that information for the semaphore portion.
 > - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
 ---
 > [!NOTE]
