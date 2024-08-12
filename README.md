@@ -12,10 +12,11 @@
   + [:x: Problem](#%3A%78%3A%2D%70%72%6F%62%6C%65%6D)
   + [:heavy\_check\_mark: Solution](#%3A%68%65%61%76%79%5F%63%68%65%63%6B%5F%6D%61%72%6B%3A%2D%73%6F%6C%75%74%69%6F%6E)
   + [✅ Install prerequisites](#%E2%9C%85%2D%69%6E%73%74%61%6C%6C%2D%70%72%65%72%65%71%75%69%73%69%74%65%73)
+  + [:memo: Notes](#%3A%6D%65%6D%6F%3A%2D%6E%6F%74%65%73)
   + [:gear: Instructions](#%3A%67%65%61%72%3A%2D%69%6E%73%74%72%75%63%74%69%6F%6E%73)
     + [Install](#%69%6E%73%74%61%6C%6C)
     + [Upgrade](#%75%70%67%72%61%64%65)
-  + [:memo: Notes](#%3A%6D%65%6D%6F%3A%2D%6E%6F%74%65%73)
+  
 
 
 
@@ -40,7 +41,10 @@ sudo apt -y install jq wget curl git
 sudo dnf -y install jq wget curl git
 ```
 
-
+## :memo: Notes
+> [!NOTE]
+> I've modified the script to install MariaDB by default and pass the commands through to MariaDB for the setup of the database. This is not for the Sempaphore Setup portion but just the Datbase. All you need to is note that information for the semaphore portion.
+> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
 
 ## :gear: Instructions
 
@@ -94,10 +98,7 @@ cd semaUwU
 </details>
 
 
-## :memo: Notes
-> [!NOTE]
-> I've modified the script to install MariaDB by default and pass the commands through to MariaDB for the setup of the database. This is not for the Sempaphore Setup portion but just the Datbase. All you need to is note that information for the semaphore portion.
-> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
+
 ---
 > [!NOTE]
 > Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
