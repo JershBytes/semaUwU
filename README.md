@@ -1,9 +1,7 @@
 <p align="center">
   <a href="" rel="noopener">
- <img width=200px height=200px src="/assets/images/github-header-image.png" alt="Project logo"></a>
+ <img src="/assets/images/github-header-image.png" alt="Project logo"></a>
 </p>
-
-<h3 align="center"> SemaUwU </h3>
 
 <div align="center">
 
