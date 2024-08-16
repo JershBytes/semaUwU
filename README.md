@@ -1,12 +1,20 @@
 <p align="center">
-  <img src="./assets/images/github-header-image.png" alt="Header">
-  <a href="https://github.com/ColoredBytes/Sempahore/blob/96113c308c5c5c57bb28591d058b2e90b2c65d33/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-yellow.svg" alt="License: MIT">
-  </a>
+  <a href="" rel="noopener">
+ <img width=200px height=200px src="/assets/images/github-header-image.png" alt="Project logo"></a>
 </p>
 
+<h3 align="center"> SemaUwU </h3>
 
-# :link: Table of Contents
+<div align="center">
+
+[![Status](https://img.shields.io/badge/status-active-success.svg)]()
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](/LICENSE)
+
+</div>
+
+---
+
+<h1 align="center"> :link: Table of Contents </h1>
 
 + [:link: Table of Contents](#%3A%6C%69%6E%6B%3A%2D%74%61%62%6C%65%2D%6F%66%2D%63%6F%6E%74%65%6E%74%73)
   + [:x: Problem](#%3A%78%3A%2D%70%72%6F%62%6C%65%6D)
