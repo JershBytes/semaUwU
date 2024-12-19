@@ -1,6 +1,6 @@
 <p align="center">
   <a href="" rel="noopener">
- <img src="/assets/images/github-header-image.png" alt="Project logo"></a>
+ <img src="./.github/images/github-header-image.png" alt="Project logo"></a>
 </p>
 
 <div align="center">
