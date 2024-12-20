@@ -47,23 +47,15 @@ sudo apt -y install jq wget curl git
 sudo dnf -y install jq wget curl git
 ```
 
-## :memo: Notes
-> [!NOTE]
-> I've modified the script to install MariaDB by default and pass the commands through to MariaDB for the setup of the database. This is not for the Sempaphore Setup portion but just the Datbase. All you need to is note that information for the semaphore portion.
-> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
 
-> [!NOTE]
-> Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
-> - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
-> - [OpenTofu](https://opentofu.org/docs/intro/install/)
 
 ## :gear: Instructions
+
+### Install
 
 <details>
   <summary>Click me</summary>
 
-
-### Install
 
 - **Clone the repo.**
 
@@ -76,38 +68,54 @@ git clone https://github.com/ColoredBytes/semaUwU.git
  ```bash
 cd semaUwU
 ```
-- **On Deb Based Systems.**
- 
- ```bash
- ./install.sh deb
-```
-- **On Rpm Based Systems.**
-
+- **Run the script.**
 ```bash
+# On Debian based systems arm64 or amd64
+
+./install.sh deb
+./install.sh arm-deb
+
+# On RHEL based systems arm64 or amd64
+
 ./install.sh rpm
+./install.sh arm-rpm
 ```
 
----
+</details>
 
 ### Upgrade
+
+<details>
+  <summary>Click me</summary>
 
 - **Change into the directory**
 
  ```bash
 cd semaUwU
 ```
-- **On Deb Based Systems.**
- 
- ```bash
- ./upgrade.sh deb
-```
-- **On Rpm Based Systems.**
-
+- **Run the script.**
 ```bash
-./upgrade.sh rpm
+# On Debian based systems arm64 or amd64
+
+./upgrade.sh deb #amd64
+./upgrade.sh arm-deb #arm64
+
+# On RHEL based systems arm64 or amd64
+
+./upgrade.sh rpm #amd64
+./upgrade.sh arm-rpm #arm64
 ```
 </details>
 
+## :memo: Notes
+> [!NOTE]
+> I've modified the script to install MariaDB by default and pass the commands through to MariaDB for the setup of the database. This is not for the Sempaphore Setup portion but just the Datbase. All you need to is note that information for the semaphore portion.
+> - In [mariab.conf](conf/mariadb.conf) you'll just need to change the password and make your own root password as well.
+
+> [!NOTE]
+> Since new versions of Semaphore let you use **Terraform** and **OpenTofu**. You Can also install them following the Instructions from the links below
+> - [Terraform](https://developer.hashicorp.com/terraform/install?ajs_aid=edd2c1a1-9fee-4fca-b9af-9b89a5e3932c&product_intent=terraform)
+> - [OpenTofu](https://opentofu.org/docs/intro/install/)
 
 
 
